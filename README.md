@@ -8,8 +8,9 @@ TON with Python
 
 # Теория
 Смарт-контракты TON пишутся на языке FunC и Fift, а исполняются на виртуальной машине TON (Telegram Open Network Virtual Machine).
-
 Для взаимодействия с блокчейном необходим установить и использовать lite-client (гайд по его установке), само взаимодействие происходит по API и SDK.
+
+
 
 Полезные приложения и инструменты:
 Плагины для редакторов кода — IDEA, Sublime Text, VS Code.
@@ -41,7 +42,6 @@ Tonic.
 
 
 
-
 # Практика
 Создадим файл "wallet_creation"
 Создадим Кошелек на Тест-нет с помощью библиотеки Ton SDK и методов
@@ -57,6 +57,20 @@ mnemonics, pub_k, priv_k, wallet = Wallets.from_mnemonics(mnemonics=mnemonics, v
 Приватный ключ (priv_k),
 Адрес Кошелька (wallet)
 Wallet - это объект класса
+
+		from tonsdk.contract.wallet import Wallets, WalletVersionEnum
+		
+		mnemonics1, pub_key1, priv_k1, wallet1 = Wallets.create(version=WalletVersionEnum.v3r2, workchain=0)
+		
+		print(mnemonics1)
+		print(pub_key1)
+		print(priv_k1)
+		print(wallet1)
+
+['price', 'gas', 'pizza', 'before', 'skirt', 'reform', 'whale', 'around', 'mother', 'flock', 'gown', 'dry', 'target', 'segment', 'stumble', 'help', 'palace', 'bird', 'away', 'jacket', 'dolphin', 'bright', 'change', 'reflect']
+b'\xb2\xd2Y\xaf\xf5h\xd7\x0e\xb1|]i]\xee\xfe\xd8e\x90\xb8\xac<\xfdn\xb2l7s\xbd\x17\xd7\x0e\xb0'
+b'\x9d\xd7\xe2\xb3\xa1\xa7\x1d1\x7fU\xbb\x14\xe5\xcc\xf1\xfeb\xfe\x00\xc25\xb6ME\x17\xa02\xa8\x95\xaa\x84\xf9\xb2\xd2Y\xaf\xf5h\xd7\x0e\xb1|]i]\xee\xfe\xd8e\x90\xb8\xac<\xfdn\xb2l7s\xbd\x17\xd7\x0e\xb0'
+<tonsdk.contract.wallet._wallet_contract_v3.WalletV3ContractR2 object at 0x0000012755E84090>
 
 
 Создадим отдельный файл для хранения "секретных" переменных. Создадим файл "mnemonics_data.py" и поместим mnemomics (seed-фразу) в переменную wallet_test_1 
