@@ -1,0 +1,46 @@
+Нам нужно для MVP ДАО на ТОНе 
+
+(3 Кошелька, Жетоны, Tonkeeper отображение, Голосование) 
+
+
+1) Создать 4 кошелька и задеплоить их 
+3 кошелька для основателей, 1 общий кошелек для казны 
+
+https://www.youtube.com/watch?v=2Hk82Dhzcxs
+
+
+ 
+2) Заминтить тестовые жетоны TOY 10 000 штук и закинуть их на кошелек казны
+Ton Minter:  
+
+https://minter.ton.org/
+
+https://github.com/ton-blockchain/minter
+
+Гайд: https://docs.ton.org/develop/dapps/tutorials/jetton-minter
+
+3) Написать и задеплоить смартконтракт, который 1 раз в сутки в 20:00 по МСК переводит по 1 GLD с кошелька казны Гильдии на 3 кошелька основателей  
+
+Фреймворк для смартконтрактов рекомендуется Blueprint: https://github.com/ton-org/blueprint 
+
+Другие решения: 
+
+
+
+
+
+4) ... [BlackBox] (UI? / Общая интеграция?, webapp?)
+
+5)  Подключить TON Tonnect 2.0 
+
+TON Connect is a communication protocol between wallets and apps in the TON ecosystem. Wallets do not need to build walled-garden ecosystems themselves, while the apps do not need to take the risk of holding end users’ accounts. TON Connect aims to offer a seamless user experience between the wallets and the apps. Read our recent article, TON Connect – The Future Without Passwords, (https://blog.ton.org/ton-connect-the-future-without-passwords) to better understand the concept and its benefits. Click here (https://github.com/ton-connect) for the TON Connect Github repo.
+  PyTon Connect by XaBbl4 (https://github.com/XaBbl4/pytonconnect) – A Python SDK for TON Connect 2.0. This library is the analog of the @tonconnect/sdk library, (https://github.com/ton-connect/sdk/tree/main/packages/sdk) and you can use it to connect your app to TON wallets via the TON Connect protocol. You can find more details and the protocol specification in the docs. (https://github.com/ton-connect/docs)
+  TON Connect for Python by ClickoTON Foundation (https://github.com/ClickoTON-Foundation/tonconnect) – Another library for connecting TON Connect to Python apps.
+
+
+6) Подключить систему голосования от TON Vote 
+
+https://github.com/orbs-network/ton-vote
+
+
+7) profit
