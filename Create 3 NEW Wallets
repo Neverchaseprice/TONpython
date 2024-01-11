@@ -1,14 +1,38 @@
 from tonsdk.contract.wallet import Wallets, WalletVersionEnum
 
+#Wallet - это объект класса
+#Метод Wallets.create возвращает 4 метрики:
+# Мнемонику (mnemonics),
+# Публичный ключ (pub_k),
+# Приватный ключ (priv_k),
+# Адрес Кошелька (wallet)
+
+    #Кошелек 1
 mnemonics1, pub_key1, priv_k1, wallet1 = Wallets.create(version=WalletVersionEnum.v3r2, workchain=0)
+
+    #Кошелек 2
 mnemonics2, pub_key2, priv_k2, wallet2 = Wallets.create(version=WalletVersionEnum.v3r2, workchain=0)
+
+    #Кошелек 3
 mnemonics3, pub_key3, priv_k3, wallet3 = Wallets.create(version=WalletVersionEnum.v3r2, workchain=0)
 
+    #Кошелек 4 (Казна ДАО)
+mnemonics4, pub_key4, priv_k4, wallet4 = Wallets.create(version=WalletVersionEnum.v3r2, workchain=0)
+
+
 print("___Вывод данных Первого кошелька___")
-print(mnemonics1, pub_key1, priv_k1, wallet1, sep='\n')
+print(mnemonics1, pub_key1, priv_k1, wallet1.address.to_string(True, True, True, True), sep='\n', end='\n\n')
 
 print("___Вывод данных Второго кошелька___")
-print(mnemonics2, pub_key2, priv_k2, wallet2, sep='\n')
+print(mnemonics2, pub_key2, priv_k2, wallet2.address.to_string(True, True, True, True), sep='\n', end='\n\n')
 
 print("___Вывод данных Третьего кошелька___")
-print(mnemonics3, pub_key3, priv_k3, wallet3, sep='\n')
+print(mnemonics3, pub_key3, priv_k3, wallet3.address.to_string(True, True, True, True), sep='\n', end='\n\n')
+
+print("___Вывод данных кошелька Казны ДАО___")
+print(mnemonics4, pub_key4, priv_k4, wallet4.address.to_string(True, True, True, True), sep='\n', end='\n\n')
+
+
+#Если написать просто print((wallet.address.to_string())), то будет выведен адрес в 16-ричной форме (формат HEX).
+# Поэтому нам надо прописать print((wallet.address.to_string(True, True, True,True)))
+# Мы пишем 4 True, так как мы работаем с Тестнетом и четвертое "True" дает кошелек в Test-Net форме.
