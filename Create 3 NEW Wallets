@@ -1,0 +1,14 @@
+from tonsdk.contract.wallet import Wallets, WalletVersionEnum
+
+mnemonics1, pub_key1, priv_k1, wallet1 = Wallets.create(version=WalletVersionEnum.v3r2, workchain=0)
+mnemonics2, pub_key2, priv_k2, wallet2 = Wallets.create(version=WalletVersionEnum.v3r2, workchain=0)
+mnemonics3, pub_key3, priv_k3, wallet3 = Wallets.create(version=WalletVersionEnum.v3r2, workchain=0)
+
+print("___Вывод данных Первого кошелька___")
+print(mnemonics1, pub_key1, priv_k1, wallet1, sep='\n')
+
+print("___Вывод данных Второго кошелька___")
+print(mnemonics2, pub_key2, priv_k2, wallet2, sep='\n')
+
+print("___Вывод данных Третьего кошелька___")
+print(mnemonics3, pub_key3, priv_k3, wallet3, sep='\n')
