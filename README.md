@@ -89,6 +89,27 @@ mnemonics, pub_k, priv_k, wallet = Wallets.from_mnemonics(mnemonics=mnemonics, v
 
 if __name__ == '__main__':
     print(mnemonics)
+
+
+
+
+
+
+from tonsdk.contract.wallet import Wallets, WalletVersionEnum
+
+def create_wallets(num_wallets=4):
+    wallets_data = []
+    for _ in range(num_wallets):
+        mnemonics, pub_key, priv_k, wallet = Wallets.create(version=WalletVersionEnum.v3r2, workchain=0)
+        wallets_data.append((mnemonics, pub_key, priv_k, wallet))
+    return wallets_data
+
+# Пример использования функции
+created_wallets = create_wallets()
+for i, (mnemonics, pub_key, priv_k, wallet) in enumerate(created_wallets, start=1):
+    print(f"___Вывод данных кошелька {i}___")
+    print(mnemonics, pub_key, priv_k, wallet.address.to_string(True, True, True, True), sep="\n", end="\n\n")
+
     print((wallet.address.to_string(True, True, True, True)))
     
  
